@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+hostname
+whoami
 host=`hostname -s`
 if [ $host = "scanner" ]; then
   sudo apt update
