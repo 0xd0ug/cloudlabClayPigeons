@@ -22,11 +22,11 @@ targetInternet = request.Link(members = [internet, fwtarget])
 scannerInternet = request.Link(members = [internet, fwscanner])
 
 # Install and execute a script that is contained in the repository.
-scanner.addService(pg.Execute(shell="sh", command="/local/repository/upgrade.sh"))
-target.addService(pg.Execute(shell="sh", command="/local/repository/upgrade.sh"))
-internet.addService(pg.Execute(shell="sh", command="/local/repository/upgrade.sh"))
-fwscanner.addService(pg.Execute(shell="sh", command="/local/repository/upgrade.sh"))
-fwtarget.addService(pg.Execute(shell="sh", command="/local/repository/upgrade.sh"))
+scanner.addService(pg.Execute(shell="sh", command="bash /local/repository/upgrade.sh"))
+target.addService(pg.Execute(shell="sh", command="bash /local/repository/upgrade.sh"))
+internet.addService(pg.Execute(shell="sh", command="bash /local/repository/upgrade.sh"))
+fwscanner.addService(pg.Execute(shell="sh", command="bash /local/repository/upgrade.sh"))
+fwtarget.addService(pg.Execute(shell="sh", command="bash /local/repository/upgrade.sh"))
 
 # Print the RSpec to the enclosing page.
 pc.printRequestRSpec(request)
