@@ -8,7 +8,8 @@ if [ $host = "scanner" ]; then
 fi
 if [ $host = "target" ]; then
   cd /users/deverso
-  git clone https://github.com/0xd0ug/clayPigeons.git
+  sudo git clone https://github.com/0xd0ug/clayPigeons.git
+  sudo chown -R deverso clayPigeons/
 fi
 if [ $host = "internet" ]; then
   sudo tc qdisc add dev eth1 root netem delay 20ms
