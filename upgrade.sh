@@ -14,7 +14,7 @@ if [ $host = "scanner" ]; then
   apt -y install nmap
 fi
 if [ $host = "target" ]; then
-  apt -y install pip3
+  apt -y install python3-pip
   pip3 install exrex
   git clone https://github.com/0xd0ug/clayPigeons.git /usr/local/clayPigeons
   chown -R deverso /usr/local/clayPigeons/
