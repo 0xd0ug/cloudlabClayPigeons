@@ -16,8 +16,8 @@ fi
 if [ $host = "target" ]; then
   apt -y install pip3
   pip3 install exrex
-  git clone https://github.com/0xd0ug/clayPigeons.git /users/deverso/clayPigeons
-  chown -R deverso /users/deverso/clayPigeons/
+  git clone https://github.com/0xd0ug/clayPigeons.git /usr/local/clayPigeons
+  chown -R deverso /usr/local/clayPigeons/
 fi
 if [ $host = "internet" ]; then
   tc qdisc add dev eth1 root netem delay 20ms
