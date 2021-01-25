@@ -11,17 +11,17 @@ apt update
 # End commands for all hosts
 
 if [ $host = "scanner" ]; then
-  su $SUDO_USER -c "git clone https://github.com/0xd0ug/nmap"
+  git clone https://github.com/0xd0ug/nmap
   cd nmap
-  su $SUDO_USER -c "./configure"
-  su $SUDO_USER -c "make"
+  ./configure
+  make
   make install
 fi
 if [ $host = "target" ]; then
-  su $SUDO_USER -c "git clone https://github.com/0xd0ug/nmap"
+  git clone https://github.com/0xd0ug/nmap
   cd nmap
-  su $SUDO_USER -c "./configure"
-  su $SUDO_USER -c "make"
+  ./configure
+  make
   make install
   git clone https://github.com/0xd0ug/clayPigeons.git /usr/local/clayPigeons
   chown -R deverso /usr/local/clayPigeons/
