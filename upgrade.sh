@@ -12,7 +12,7 @@ apt update
 
 if [ $host = "scanner" ]; then
   # Install zgrab
-  apt install golang
+  apt -y install golang
   export GOPATH=/usr/local/go
   cd /usr/local
   go get github.com/zmap/zgrab2
@@ -23,7 +23,7 @@ if [ $host = "scanner" ]; then
   chown -R deverso /usr/local/go
   
   # Install zmap
-  apt install zmap
+  apt -y install zmap
   
   # Install masscan
   git clone https://github.com/robertdavidgraham/masscan /usr/local/masscan
