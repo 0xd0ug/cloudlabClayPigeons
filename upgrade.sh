@@ -25,20 +25,22 @@ if [ $host = "scanner" ]; then
   # Install zmap
   apt -y install zmap
   
+  # Install nmap
+  git clone https://github.com/0xd0ug/nmap /usr/local/nmap
+  cd /usr/local/nmap
+  ./configure
+  make
+  make install
+  chown -R deverso /usr/local/nmap
+  
   # Install masscan
   git clone https://github.com/robertdavidgraham/masscan /usr/local/masscan
   cd /usr/local/masscan
   make
   make install
   chown -R deverso /usr/local/masscan
-  
-  # Install nmap
-  git clone https://github.com/0xd0ug/nmap
-  cd nmap
-  ./configure
-  make
-  make install
 fi
+
 if [ $host = "target" ]; then
   git clone https://github.com/0xd0ug/nmap
   cd nmap
