@@ -55,3 +55,9 @@ if [ $host = "internet" ]; then
   tc qdisc add dev eth1 root netem delay 20ms
   tc qdisc add dev eth2 root netem delay 20ms
 fi
+
+# Begin commands for all hosts
+
+updatedb
+
+# End commands for all hosts
