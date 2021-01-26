@@ -20,6 +20,7 @@ if [ $host = "scanner" ]; then
   go get ./...
   go build
   make
+  install -pDm755 zgrab2 /usr/local/bin/zgrab2
   chown -R deverso /usr/local/go
   
   # Install zmap
@@ -37,7 +38,7 @@ if [ $host = "scanner" ]; then
   git clone https://github.com/robertdavidgraham/masscan /usr/local/masscan
   cd /usr/local/masscan
   make
-  make install
+  install -pDm755 bin/masscan /usr/local/bin/masscan # Make install on Cloudlab installs to wrong directory
   chown -R deverso /usr/local/masscan
 fi
 
