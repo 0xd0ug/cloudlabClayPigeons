@@ -11,6 +11,28 @@ apt update
 # End commands for all hosts
 
 if [ $host = "scanner" ]; then
+  # Install zgrab
+  apt install golang
+  export GOPATH=/usr/local/go
+  cd /usr/local
+  go get github.com/zmap/zgrab2
+  cd go/src/github.com/zmap/zgrab2/
+  go get ./...
+  go build
+  make
+  chown -R deverso /usr/local/go
+  
+  # Install zmap
+  apt install zmap
+  
+  # Install masscan
+  git clone https://github.com/robertdavidgraham/masscan /usr/local/masscan
+  cd /usr/local/masscan
+  make
+  make install
+  chown -R deverso /usr/local/masscan
+  
+  # Install nmap
   git clone https://github.com/0xd0ug/nmap
   cd nmap
   ./configure
@@ -24,7 +46,7 @@ if [ $host = "target" ]; then
   make
   make install
   git clone https://github.com/0xd0ug/clayPigeons.git /usr/local/clayPigeons
-  chown -R deverso /usr/local/clayPigeons/
+  chown -R deverso /usr/local/clayPigeons
 fi
 if [ $host = "internet" ]; then
   tc qdisc add dev eth1 root netem delay 20ms
