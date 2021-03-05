@@ -1,0 +1,3 @@
+nmap `cat horiztarget` -p80,3306 -sV -Pn -v -oG output
+grep MySQL output | wc
+grep Apache output | wc

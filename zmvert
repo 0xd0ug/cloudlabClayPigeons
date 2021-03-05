@@ -1,0 +1,10 @@
+#!/bin/bash
+source=verttarget
+fwmac=`cat scannerfwmac`
+zmap `cat $source`  -p80 -i vlan290 -G $fwmac 2> output
+zmap `cat $source`  -p3306 -i vlan290 -G $fwmac 2>> output
+zgrab2 http -f $source >> output
+zgrab2 mysql -f $source >> output
+grep hitrate output
+grep MySQL output | wc
+grep Apache output | wc
