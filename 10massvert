@@ -1,0 +1,7 @@
+#!/bin/bash
+#Change the vlan parameter to the correct interface
+iptables -A INPUT -p tcp -i vlan290 --dport 40000:60000 -j DROP
+masscan -c 10masscan.conf > output
+iptables -F
+egrep "open port (175|515|1241|1501|4369|5530|5555|8009|8080|9097)" output | wc
+egrep Apache2\|MySQL output | wc

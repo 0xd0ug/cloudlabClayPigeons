@@ -1,0 +1,13 @@
+#!/bin/bash
+source=verttarget
+fwmac=`cat scannerfwmac`
+echo > output
+while read port
+	do echo >z$port.tmp
+	zmap `cat $source`  -p$port -i vlan290 -G $fwmac 2> z$port.tmp&
+done < 10ports
+wait
+while read port
+do printf "$port: "
+grep hitrate z$port.tmp | tail -n1
+done < 10ports

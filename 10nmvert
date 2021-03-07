@@ -1,0 +1,11 @@
+nmap `cat verttarget` -p175,515,1241,1501,4369,5530,5555,8009,8080,9097 -sV -Pn -v -oG output
+grep "IBM Network Job Entry" output | wc
+grep "NetMeeting" output | wc
+grep "Nessus" output | wc
+grep "Cross Match" output | wc
+grep "Erlang" output | wc
+grep -i "UNIX login" output | wc
+grep "Android Debug" output | wc
+grep "Apache Jserv" output | wc
+grep "RTSP Proxy" output | wc
+grep "open/tcp//drda" output | wc
